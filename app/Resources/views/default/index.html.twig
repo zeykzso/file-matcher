@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">Oro File Inventor</h1>
+        </div>
+        <div class="row">
+            <form action="" method="post" class="for">
+                <div class="input-group">
+                    {{ form_widget(form.search, {'attr': {'class': 'form-control'} }) }}
+                    <span class="input-group-btn">
+                            <input type="submit" class="btn btn-success" value="Search"/>
+                        </span>
+                </div>
+                {{ form_widget(form._token) }}
+            </form>
+            <div>
+                <h3 class="text-center">Results:</h3>
+                <hr/>
+                {% for group in searchResult %}
+                    <div>
+                        <code><strong>Root folder:</strong> {{ group.rootSearchFolder }}</code>
+                    </div>
+                    <br/>
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Extension</th>
+                        </tr>
+                        {% for file in group %}
+                            <tr>
+                                <td><span class="label label-primary">{{ file.name }}</span></td>
+                                <td>{{ file.folder }}</td>
+                                <td><kbd>{{ file.extension }}</kbd></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

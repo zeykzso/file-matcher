@@ -1,0 +1,3 @@
+oro_file_inventor_homepage:
+    path:     /2
+    defaults: { _controller: OroFileInventorBundle:Default:index }
