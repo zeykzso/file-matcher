@@ -9,7 +9,10 @@ use Symfony\Component\Finder\Finder;
 
 class SymfonyFinder implements FileSearchEngineInterface
 {
-    public function searchString($stringToSearch, $searchFolder): FileSearchResult
+    /**
+     * @inheritdoc
+     */
+    public function searchString($stringToSearch, $searchFolder)
     {
         $finder = new Finder();
         $result = new FileSearchResult($searchFolder);
@@ -24,5 +27,21 @@ class SymfonyFinder implements FileSearchEngineInterface
         }
 
         return $result;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function supportsRegex()
+    {
+        return true;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function searchRegex($regex, $searchFolder)
+    {
+        return $this->searchString($regex, $searchFolder);
     }
 }

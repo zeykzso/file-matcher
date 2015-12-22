@@ -23,7 +23,6 @@ class OroFileInventorExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('oro_root_search_folders', $config['root_search_folders']);
-        $container->setParameter('oro_search_engine', $config['search_engine']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

@@ -11,5 +11,17 @@ interface FileSearchEngineInterface
      * @param string $searchFolder
      * @return FileSearchResult
      */
-    public function searchString($stringToSearch, $searchFolder): FileSearchResult;
+    public function searchString($stringToSearch, $searchFolder);
+
+    /**
+     * @return bool
+     */
+    public function supportsRegex();
+
+    /**
+     * @param string $regex
+     * @param string $searchFolder
+     * @return FileSearchResult
+     */
+    public function searchRegex($regex, $searchFolder);
 }

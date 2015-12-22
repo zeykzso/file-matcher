@@ -14,6 +14,10 @@ class Configuration implements ConfigurationInterface
 {
     const DEFAULT_SEARCH_FOLDER = __DIR__ . '../ExampleFileRepository';
     const DEFAULT_SEARCH_ENGINE = 'oro_file_inventor.symfony_finder';
+
+    const INVENTOR_SERVICE = 'oro_file_inventor';
+    const SEARCH_ENGINE_TAG = 'file_inventor_search_engine';
+
     /**
      * {@inheritdoc}
      */
@@ -29,9 +33,7 @@ class Configuration implements ConfigurationInterface
                         ->defaultValue([self::DEFAULT_SEARCH_FOLDER])
                     ->end()
                 ->end()
-                ->scalarNode('search_engine')
-                    ->isRequired()
-                    ->defaultValue(self::DEFAULT_SEARCH_ENGINE)
+                ->scalarNode('default_search_engine')
                 ->end()
             ->end();
 

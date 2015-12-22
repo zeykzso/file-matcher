@@ -70,4 +70,4 @@ oro_file_inventor:
     root_search_folders:
         - /Users/zeykzso/Sites/file-matcher/src/Oro/FileInventorBundle/ExampleFileRepository
         - /Users/zeykzso/Sites/file-matcher/src/Oro/FileInventorBundle/ExampleFileRepository2
-    search_engine: oro_file_inventor.symfony_finder
+    default_search_engine: oro_file_inventor.symfony_finder

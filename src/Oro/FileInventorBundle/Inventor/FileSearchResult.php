@@ -20,6 +20,11 @@ class FileSearchResult implements \Iterator
     protected $rootSearchFolder;
 
     /**
+     * @var int
+     */
+    protected $numberOfResults = 0;
+
+    /**
      * @param string $rootSearchFolder
      */
     public function __construct($rootSearchFolder)
@@ -72,6 +77,7 @@ class FileSearchResult implements \Iterator
     public function add(FileLocation $fileLocation)
     {
         $this->fileLocationList[] = $fileLocation;
+        $this->numberOfResults++;
     }
 
     /**
@@ -89,5 +95,13 @@ class FileSearchResult implements \Iterator
     public function getRootSearchFolder()
     {
         return $this->rootSearchFolder;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfResults()
+    {
+        return $this->numberOfResults;
     }
 }

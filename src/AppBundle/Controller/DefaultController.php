@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\FileSearchType;
-use Oro\FileInventorBundle\Inventor\FileSearchResult;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Finder\Finder;
@@ -18,14 +17,20 @@ class DefaultController extends Controller
     {
         $form = $this->createForm(new FileSearchType());
         $form->handleRequest($request);
+
         $searchResult = null;
+        $searched = false;
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $searchResult = $this->get('oro_file_inventor')->searchString($form['search']->getData());
+            $isRegex = $form['isRegex']->getData();
+            $searchResult = $this->get('oro_file_inventor')->search($form['search']->getData(), $isRegex);
+            $searched = true;
         }
 
         return $this->render('default/index.html.twig', [
             'form' => $form->createView(),
-            'searchResult' => $searchResult
+            'searchResult' => $searchResult,
+            'searched' => $searched
         ]);
     }
 }

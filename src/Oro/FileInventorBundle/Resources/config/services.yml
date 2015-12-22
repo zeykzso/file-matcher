@@ -1,10 +1,10 @@
 services:
     oro_file_inventor.symfony_finder:
         class: Oro\FileInventorBundle\Inventor\SymfonyFinder\SymfonyFinder
+        tags:
+            - {name: file_inventor_search_engine, alias: symfony_finder }
 
     oro_file_inventor:
         class: Oro\FileInventorBundle\Inventor\OroFileInventor
         arguments:
-            - @service_container
             - %oro_root_search_folders%
-            - %oro_search_engine%
