@@ -49,8 +49,8 @@ class SearchEngineCompilerPass implements CompilerPassInterface
 
         // Add default search engine service to main inventor service
         $inventorService->addMethodCall(
-            'addSearchEngine',
-            [new Reference($defaultSearchEngineId), 'default']
+            'setDefaultSearchEngine',
+            [new Reference($defaultSearchEngineId)]
         );
     }
 }

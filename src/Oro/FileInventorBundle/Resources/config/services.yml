@@ -1,6 +1,10 @@
 services:
+    finder_component_factory:
+        class: Oro\FileInventorBundle\Inventor\SymfonyFinder\FinderFactory
+
     oro_file_inventor.symfony_finder:
         class: Oro\FileInventorBundle\Inventor\SymfonyFinder\SymfonyFinder
+        arguments: [@finder_component_factory]
         tags:
             - {name: file_inventor_search_engine, alias: symfony_finder }
 

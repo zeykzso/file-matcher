@@ -10,14 +10,32 @@ use Symfony\Component\Finder\Finder;
 class SymfonyFinder implements FileSearchEngineInterface
 {
     /**
+     * @var FinderFactory
+     */
+    protected $finderFactory;
+
+    /**
+     * @var Finder
+     */
+    protected $finder;
+
+    /**
+     * @param FinderFactory $finderFactory
+     */
+    public function __construct(FinderFactory $finderFactory)
+    {
+        $this->finderFactory = $finderFactory;
+    }
+
+    /**
      * @inheritdoc
      */
     public function searchString($stringToSearch, $searchFolder)
     {
-        $finder = new Finder();
+        $this->finder = $this->finderFactory->create();
         $result = new FileSearchResult($searchFolder);
-        $finder->ignoreUnreadableDirs()->in($searchFolder);
-        foreach ($finder->files()->contains($stringToSearch) as $file) {
+        $this->finder->ignoreUnreadableDirs()->in($searchFolder);
+        foreach ($this->finder->files()->contains($stringToSearch) as $file) {
             /** @var \Symfony\Component\Finder\SplFileInfo $file */
             $fileLocation = new FileLocation();
             $fileLocation->setFolder($file->getPath());

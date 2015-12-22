@@ -12,7 +12,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
-    const DEFAULT_SEARCH_FOLDER = __DIR__ . '../ExampleFileRepository';
+    const DEFAULT_SEARCH_FOLDER = __DIR__ . '/../Tests/ExampleFileRepository';
     const DEFAULT_SEARCH_ENGINE = 'oro_file_inventor.symfony_finder';
 
     const INVENTOR_SERVICE = 'oro_file_inventor';
@@ -30,7 +30,6 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->arrayNode('root_search_folders')
                     ->prototype('scalar')
-                        ->defaultValue([self::DEFAULT_SEARCH_FOLDER])
                     ->end()
                 ->end()
                 ->scalarNode('default_search_engine')

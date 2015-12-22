@@ -20,7 +20,7 @@
             </form>
             {% if searched %}
                 <div>
-                    <h3 class="text-center">Results:</h3>
+                    <h3 class="text-center results">Results:</h3>
                     {% for group in searchResult %}
                         <div>
                             <code>Search folder: <strong>{{ group.rootSearchFolder }}</strong></code>
@@ -36,8 +36,8 @@
                                     <th>Extension</th>
                                 </tr>
                                 {% for file in group %}
-                                    <tr>
-                                        <td><span class="label label-primary">{{ file.name }}</span></td>
+                                    <tr class="file-info">
+                                        <td><kbd class="file-name">{{ file.name }}</kbd></td>
                                         <td>{{ file.folder }}</td>
                                         <td><kbd>{{ file.extension }}</kbd></td>
                                     </tr>

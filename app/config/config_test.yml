@@ -14,3 +14,8 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+oro_file_inventor:
+    root_search_folders:
+        - /Users/zeykzso/Sites/file-matcher/src/Oro/FileInventorBundle/Tests/ExampleFileRepository
+        - /Users/zeykzso/Sites/file-matcher/src/Oro/FileInventorBundle/Tests/ExampleFileRepository2
