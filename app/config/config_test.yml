@@ -17,5 +17,5 @@ swiftmailer:
 
 oro_file_inventor:
     root_search_folders:
-        - /Users/zeykzso/Sites/file-matcher/src/Oro/FileInventorBundle/Tests/ExampleFileRepository
-        - /Users/zeykzso/Sites/file-matcher/src/Oro/FileInventorBundle/Tests/ExampleFileRepository2
+        - src/Oro/FileInventorBundle/Tests/ExampleFileRepository
+        - src/Oro/FileInventorBundle/Tests/ExampleFileRepository2

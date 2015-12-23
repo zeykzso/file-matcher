@@ -21,8 +21,16 @@ class OroFileInventorExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
+        $kernelRoot = $container->getParameter('kernel.root_dir');
 
-        $container->setParameter('oro_root_search_folders', $config['root_search_folders']);
+        $searchFolders = $config['root_search_folders'];
+        foreach ($searchFolders as $index => $folder) {
+            // If path starts with a '/' it means it's a full path, otherwise project root dir will be used
+            $folder = ($folder[0] == '/') ?  $folder : $kernelRoot. '/../' . $folder;
+            $searchFolders[$index] = $folder;
+        }
+
+        $container->setParameter('oro_root_search_folders', $searchFolders);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
