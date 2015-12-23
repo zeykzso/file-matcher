@@ -88,7 +88,7 @@ class OroFileInventor
      * @throws RegexNotSupportedException
      * @return FolderGroupSearchResult
      */
-    public function search($searchString, $isRegex = false, $searchEngineAlias = null): FolderGroupSearchResult
+    public function search($searchString, $isRegex = false, $searchEngineAlias = null)
     {
         if (empty($this->rootSearchFolders)) {
             throw new MissingSearchFolderException(sprintf('There are no search folders defined to search "%s" in', $searchString));
