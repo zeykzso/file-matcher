@@ -2,6 +2,8 @@ Oro File Inventor
 ==========
 This project is a proof of concept for an application that is used to search for files by content.
 
+##### requires php >= 5.6
+
 It contains two bundles:
 
 ## OroInventorBundle
