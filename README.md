@@ -22,9 +22,9 @@ The bundle supports integration with any file search engines, the default one us
 the [Symfony Finder Component](http://symfony.com/doc/current/components/finder.html)
 
 To create a new search engine and register it for the inventor service, create a new symfony service,
-and tag it with `file_inventor_search_engine` and give a unique alias:
+tag it with `file_inventor_search_engine` and give an unique alias:
 ```yaml
-    oro_file_inventor.any_search_engine_serivce:
+    oro_file_inventor.any_search_engine_service:
         class: Oro\FileInventorBundle\Inventor\AnySearchEngineNamespace\AnySearchEngine
         arguments: [@any_deps]
         tags:
